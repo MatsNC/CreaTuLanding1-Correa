@@ -1,3 +1,3 @@
-# Primera preentrega de React JS
+# Segunda preentrega de React JS
 
-Creación de una Landing Page inicial
+Navegación en la app

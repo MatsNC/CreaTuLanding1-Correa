@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -32,10 +32,6 @@ button {
   margin: 10px;
 }
 
-/* .prueba {
-  display: inline;
-} */
-
 body {
   margin: 0;
   display: flex;
@@ -60,4 +56,5 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
+

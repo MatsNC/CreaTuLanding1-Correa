@@ -1,0 +1,27 @@
+.item-count-container {
+    display: flex;
+    margin: 1.5rem;
+    align-content: center;
+    justify-content: center;
+    align-items: center;    
+}
+
+.text-cantidad {
+    margin: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.div-button {
+    display: flex;
+    align-items: flex-end;
+}
+
+.button-count {
+    background-color: rgb(60, 124, 235);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    color: azure;
+    padding: 1rem 1.5rem;
+    border: 0px;
+}

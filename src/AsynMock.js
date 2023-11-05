@@ -123,7 +123,6 @@ export const getProductByCategory = (catId) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(productos.filter(prod => prod.category === catId))
-            console.log(productos);
         }, 500);
 
     })

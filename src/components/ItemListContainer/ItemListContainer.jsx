@@ -18,8 +18,6 @@ const ItemListContainer = ({ saludos }) => {
       .catch((error) => console.error(error));
   }, [categoryId]);
 
-  console.log(productos);
-
   return (
     <div>
       {categoryId ? <h1 className="titles">{categoryId}</h1> : <h1 className="titles">{saludos}</h1>}

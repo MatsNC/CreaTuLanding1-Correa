@@ -1,8 +1,18 @@
 import Card from 'react-bootstrap/Card';
 import '../ItemDetail/ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 const ItemDetail = ({ name, img, note, price, stock }) => {
+
+    const [cantidadAgregada, setCantidadAgregada] = useState(0)
+
+    const handleCantidad = (cantidad) => {
+        setCantidadAgregada(cantidad)
+    }
+
+
     return (
         <Card className='ItemDetail text-center'>
             <img className="img-product" src={img} alt={name} />
@@ -11,7 +21,9 @@ const ItemDetail = ({ name, img, note, price, stock }) => {
                 <p className="card-text text-secondary">{note}</p>
                 <p className="card-text text-secondary">Precio: ${price}</p>
                 <p className="card-text text-secondary">Stock: {stock}</p>
-                <ItemCount inicial={1} stock={stock} onAdd={(cantidad) => console.log('Cantidad agregada', cantidad)} />
+                {cantidadAgregada > 0 ?
+                    < Button size="lg" variant="primary" href="/cart">Terminar compra</Button> :
+                    <ItemCount inicial={1} stock={stock} onAdd={handleCantidad} />}
             </div>
         </Card>
     )

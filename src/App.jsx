@@ -1,3 +1,13 @@
+/*
+Pendientes:
+
+-Cambiarle el nombre a los productos
+-Acomodar grid de cards
+-Borrar esta lista 
+
+*/
+
+
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";

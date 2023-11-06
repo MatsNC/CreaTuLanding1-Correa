@@ -18,13 +18,26 @@ const ItemListContainer = ({ saludos }) => {
       .catch((error) => console.error(error));
   }, [categoryId]);
 
+  const chg_style = () => {
+
+    if (productos.length === 3) {
+      return "col-lg-4"
+    }
+    if (productos.length > 2) {
+      return "col-lg-3"
+    }
+    else {
+      return "col-lg-6"
+    }
+  }
+
   return (
     <div>
       {categoryId ? <h1 className="titles">{categoryId}</h1> : <h1 className="titles">{saludos}</h1>}
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           {productos.map((producto) => (
-            <div className={productos.length === 3 ? "col-lg-4" :(productos.length > 2 ? "col-lg-3" : "col-lg-6")} key={producto.id}>
+            <div className={chg_style()} key={producto.id}>
               <ListItem {...producto} />
             </div>
           ))}

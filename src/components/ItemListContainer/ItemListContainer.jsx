@@ -24,7 +24,7 @@ const ItemListContainer = ({ saludos }) => {
       <div className="container d-flex justify-content-center align-items-center">
         <div className="row">
           {productos.map((producto) => (
-            <div className={productos.length > 3 ? "col-xl-3" : "col-xl-6"} key={producto.id}>
+            <div className={productos.length === 3 ? "col-lg-4" :(productos.length > 2 ? "col-lg-3" : "col-lg-6")} key={producto.id}>
               <ListItem {...producto} />
             </div>
           ))}

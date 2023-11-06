@@ -9,7 +9,8 @@ const NavBar = () => {
     <div className="container">
       <Navbar collapseOnSelect expand="lg" bg="light" data-bs-theme="light">
         <Navbar.Brand href="/">
-          <Image src={logo} width={171} height={180} fluid />
+          <Image src={logo} width={171} height={180} fluid/>
+          <h2 className="d-inline-block align-center">ST</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="text-center">

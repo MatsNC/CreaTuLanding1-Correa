@@ -1,8 +1,9 @@
 /*
 Pendientes:
 
--Cambiarle el nombre a los productos
--Acomodar grid de cards
+-Agregar titulo a Nav Bar - LISTO
+-Cambiarle el nombre a los productos 
+-Acomodar grid de cards - LISTO
 -Borrar esta lista 
 
 */

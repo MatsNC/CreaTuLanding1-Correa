@@ -21,7 +21,7 @@ const productos = [
     },
     {
         id: '2',
-        name: "Barra de proteína",
+        name: "Barra de proteína ENA",
         img: Imagen2,
         category: "Barra de proteina",
         note: "Descripcion para barra",
@@ -30,7 +30,7 @@ const productos = [
     },
     {
         id: '3',
-        name: "Colageno",
+        name: "Colageno Enaccion",
         img: Imagen3,
         category: "Colageno",
         note: "Descripcion para colageno",
@@ -39,7 +39,7 @@ const productos = [
     },
     {
         id: '4',
-        name: "Creatina",
+        name: "Creatina 300g",
         img: Imagen4,
         category: "Creatina",
         note: "Descripcion para creatina",
@@ -48,7 +48,7 @@ const productos = [
     },
     {
         id: '5',
-        name: "Proteina",
+        name: "Proteina Whey Protein 300g",
         img: Imagen5,
         category: "Proteina",
         note: "Descripcion para prote",
@@ -57,7 +57,7 @@ const productos = [
     },
     {
         id: '6',
-        name: "Barra de proteína",
+        name: "Barra de proteína ENA",
         img: Imagen6,
         category: "Barra de proteina",
         note: "Descripcion para barra",
@@ -66,7 +66,7 @@ const productos = [
     },
     {
         id: '7',
-        name: "Colageno",
+        name: "Colageno ENA Sport",
         img: Imagen7,
         category: "Colageno",
         note: "Descripcion para colageno",
@@ -75,7 +75,7 @@ const productos = [
     },
     {
         id: '8',
-        name: "Proteina",
+        name: "Proteina Whey Protein",
         img: Imagen8,
         category: "Proteina",
         note: "Descripcion para proteina",
@@ -84,7 +84,7 @@ const productos = [
     },
     {
         id: '9',
-        name: "Creatina",
+        name: "Creatina Nutremax",
         img: Imagen9,
         category: "Creatina",
         note: "Descripcion para creatina",
@@ -93,7 +93,7 @@ const productos = [
     },
     {
         id: '10',
-        name: "Creatina",
+        name: "Creatina Star",
         img: Imagen10,
         category: "Creatina",
         note: "Descripcion para creatina",

@@ -1,6 +1,8 @@
 import { Button } from 'react-bootstrap'
 
+
 function ListItem({ img, name, note, price, stock, id }) {
+  
   return (
     <div className="card text-center card-style" >
       <img className="img-product" src={img} alt="" />

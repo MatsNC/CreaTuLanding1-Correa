@@ -1,17 +1,21 @@
 import Card from 'react-bootstrap/Card';
 import '../ItemDetail/ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { CartContext } from '../Context/CartContext';
 
-const ItemDetail = ({ name, img, note, price, stock }) => {
+const ItemDetail = ({ name, img, note, price, stock, id, }) => {
+
+    const { addToCart } = useContext(CartContext)
 
     const [cantidadAgregada, setCantidadAgregada] = useState(0)
 
     const handleCantidad = (cantidad) => {
         setCantidadAgregada(cantidad)
+        const item = { id, name, note }
+        addToCart(item, cantidad)
     }
-
 
     return (
         <Card className='ItemDetail text-center'>

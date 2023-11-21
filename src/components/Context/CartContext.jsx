@@ -3,8 +3,10 @@ import { createContext, useState, useEffect } from "react"
 export const CartContext = createContext({ cart: [] })
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
-    
+    //const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
+
+    const [cart, setCart] = useState([])
+
     const isInCart = (item_id) => {
         return cart.some(prod => prod.id === item_id)
     }
@@ -25,16 +27,16 @@ export const CartProvider = ({ children }) => {
         setCart(cart.filter(prod => (prod.id !== item_id)))
     }
 
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
+    // useEffect(() => {
+    //     localStorage.setItem("cart", JSON.stringify(cart));
+    // }, [cart]);
 
-    useEffect(() => {
-        const cart = localStorage.getItem("cart");
-        if (cart) {
-            setCart(JSON.parse(cart));
-        }
-    }, []);
+    // useEffect(() => {
+    //     const cart = localStorage.getItem("cart");
+    //     if (cart) {
+    //         setCart(JSON.parse(cart));
+    //     }
+    // }, []);
 
     console.log(cart);
 

@@ -4,7 +4,7 @@ export const CartContext = createContext({ cart: [] })
 
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [])
-
+    
     const isInCart = (item_id) => {
         return cart.some(prod => prod.id === item_id)
     }

@@ -4,6 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { CartContext } from '../Context/CartContext';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ name, img, note, price, stock, id, }) => {
 
@@ -26,7 +27,11 @@ const ItemDetail = ({ name, img, note, price, stock, id, }) => {
                 <p className="card-text text-secondary">Precio: ${price}</p>
                 <p className="card-text text-secondary">Stock: {stock}</p>
                 {cantidadAgregada > 0 ?
-                    < Button size="lg" variant="primary" href="/cart">Terminar compra</Button> :
+                    < Button size="lg" variant="primary" >
+                        <Link to={"/cart"} className='Link'>
+                            Terminar compra
+                        </Link>
+                    </Button> :
                     <ItemCount inicial={1} stock={stock} onAdd={handleCantidad} />}
             </div>
         </Card>

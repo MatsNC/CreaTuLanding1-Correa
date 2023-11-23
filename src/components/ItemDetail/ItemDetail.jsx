@@ -27,11 +27,19 @@ const ItemDetail = ({ name, img, note, price, stock, id, }) => {
                 <p className="card-text text-secondary">Precio: ${price}</p>
                 <p className="card-text text-secondary">Stock: {stock}</p>
                 {cantidadAgregada > 0 ?
-                    < Button size="lg" variant="primary" >
-                        <Link to={"/cart"} className='Link'>
-                            Terminar compra
-                        </Link>
-                    </Button> :
+                    <Link
+                        className="btn btn-outline-primary btn-lg"
+                        role="button"
+                        to="/cart"
+                    >
+                        Terminar compra
+                    </Link>
+                    // < Button size="lg" variant="primary" >
+                    //     <Link to={"/cart"} className='Link'>
+                    //         Terminar compra
+                    //     </Link>
+                    // </Button> 
+                    :
                     <ItemCount inicial={1} stock={stock} onAdd={handleCantidad} />}
             </div>
         </Card>
@@ -39,3 +47,4 @@ const ItemDetail = ({ name, img, note, price, stock, id, }) => {
 }
 
 export default ItemDetail
+

@@ -10,9 +10,14 @@ function ListItem({ img, name, note, price, stock, id }) {
         <p className="card-text text-secondary">{note}</p>
         <p className="card-text text-secondary">Precio: ${price}</p>
         <p className="card-text text-secondary">Stock: {stock}</p>
-        <Button variant="primary">
-          <Link to={`/item/${id}`}>Ver Detalles</Link>
-        </Button>
+
+        <Link
+          className="btn btn-primary btn-lg"
+          role="button"
+          to={`/item/${id}`}
+        >
+          Ver Detalles
+        </Link>
       </div>
     </div>
   );

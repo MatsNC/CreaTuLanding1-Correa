@@ -18,22 +18,22 @@ const NavBar = () => {
         <Navbar.Collapse className="text-center">
           <Container>
             <Nav className="justify-content-center">
-              <Link to={"/"} style={{ fontSize: "3vh" }}>
+              <Link to={"/"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
                 Home
               </Link>
-              <Link to={"/category/Proteina"} style={{ fontSize: "3vh" }}>
+              <Link to={"/category/Proteina"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
                 Proteina
               </Link>
-              <Link to={"/category/Creatina"} style={{ fontSize: "3vh" }}>
+              <Link to={"/category/Creatina"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
                 Creatina
               </Link>
               <Link
                 to={"/category/Barra de proteina"}
-                style={{ fontSize: "3vh" }}
+                style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}
               >
                 Barras de Proteina
               </Link>
-              <Link to={"/category/Colageno"} style={{ fontSize: "3vh" }}>
+              <Link to={"/category/Colageno"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
                 Colageno
               </Link>
             </Nav>

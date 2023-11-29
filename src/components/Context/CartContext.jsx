@@ -16,8 +16,10 @@ export const CartProvider = ({ children }) => {
             return setCart(ant => [...ant, { ...item, quantity }])
         }
         else
-            console.error('El producto ya fue agregado');
-    }
+        {
+            console.error('El producto ya fue agregado');            
+        }
+    }    
 
     const clearCart = () => {
         setCart([])

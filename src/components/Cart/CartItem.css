@@ -1,0 +1,23 @@
+.cartClass {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.quantityClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgCartClass {
+    width: 10vh;
+    height: 10vh;
+}
+
+.textCartClass {
+    margin-top: 10vh;
+    text-align: center;
+}

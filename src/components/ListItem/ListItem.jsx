@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./ListItem.css"
 
 function ListItem({ img, name, note, price, stock, id }) {
   return (
@@ -12,7 +13,7 @@ function ListItem({ img, name, note, price, stock, id }) {
         <p className="card-text text-secondary">Stock: {stock}</p>
 
         <Link
-          className="btn btn-primary btn-lg"
+          className="btn btn-dark btn-lg linkItemClass"
           role="button"
           to={`/item/${id}`}
         >

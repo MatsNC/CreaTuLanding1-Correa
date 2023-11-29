@@ -1,3 +1,10 @@
+
+/*
+Sacar AsyncMock y usar Firebase
+Agregar Spinner
+
+*/
+
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
@@ -6,6 +13,7 @@ import { CartProvider } from "./components/Context/CartContext";
 import { getFirestore, getDocs, getDoc, doc, query, where, collection, addDoc } from 'firebase/firestore'
 import { appFirestore } from "./main";
 import { useEffect } from "react";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const db = getFirestore(appFirestore);
@@ -56,10 +64,16 @@ function App() {
               path="/category/:categoryId"
               element={<ItemListContainer />}
             />
-            <Route path="/item/:ItemId" element={<ItemDetailContainer />} />
+            <Route
+              path="/item/:ItemId"
+              element={<ItemDetailContainer />} />
             <Route
               path="*"
               element={<h1 className="titles">404 ERROR - NO ENCONTRADO</h1>}
+            />
+            <Route
+              path="/cart"
+              element={ <Cart/> }
             />
           </Routes>
         </BrowserRouter>

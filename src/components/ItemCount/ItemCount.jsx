@@ -1,6 +1,6 @@
 import './ItemCount.css'
 import { useState } from 'react'
-import Button from 'react-bootstrap/Button';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ItemCount = ({ inicial, stock, onAdd }) => {
@@ -20,23 +20,38 @@ const ItemCount = ({ inicial, stock, onAdd }) => {
 
     return (
         <div>
-            <div className='item-count-container'>
-                <div className="div-button">
-                    <button className="button-count" onClick={decrementar}>-</button>
+            {stock != 0 ?
+                <div className='item-count-container'>
+                    <div className="div-button">
+                        <button className="button-count" onClick={decrementar}>-</button>
+                    </div>
+                    <p className='text-cantidad'>{cantidad}</p>
+                    <div className="div-button">
+                        <button className="button-count" onClick={incrementar}>+</button>
+                    </div>
+                </div> :
+                <div className='item-count-container'>
+                    <div className="div-button">
+                        <button className="button-count-disabled">-</button>
+                    </div>
+                    <p className='text-cantidad'>{0}</p>
+                    <div className="div-button">
+                        <button className="button-count-disabled">+</button>
+                    </div>
                 </div>
-                <p className='text-cantidad'>{cantidad}</p>
-                <div className="div-button">
-                    <button className="button-count" onClick={incrementar}>+</button>
-                </div>
-            </div>
+            }
             <div>
-                {/* <Button size="lg" variant="primary" onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button> */}
-                <Link
-                    className="btn btn-primary btn-lg"
-                    role="button"
-                    to="/cart"
-                    onClick={() => onAdd(cantidad)} disabled={!stock}
-                >Agregar al carrito</Link>
+                {stock != 0 ?
+                    <Link
+                        className="btn btn-dark btn-lg"
+                        role="button"
+                        to="/cart"
+                        onClick={() => onAdd(cantidad)} disabled={!stock}
+                    >Agregar al carrito</Link> :
+                    <Button variant="secondary" size="lg" disabled>
+                        Sin Stock
+                    </Button>
+                }
             </div>
         </div>
     )

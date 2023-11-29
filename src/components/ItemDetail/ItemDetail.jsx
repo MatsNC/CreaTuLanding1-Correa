@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { CartContext } from '../Context/CartContext';
 import { Link } from 'react-router-dom';
 
-const ItemDetail = ({ name, img, note, price, stock, id, }) => {
+const ItemDetail = ({ name, img, note, price, stock, id }) => {
 
     const { addToCart } = useContext(CartContext)
 
@@ -14,7 +14,7 @@ const ItemDetail = ({ name, img, note, price, stock, id, }) => {
 
     const handleCantidad = (cantidad) => {
         setCantidadAgregada(cantidad)
-        const item = { id, name, note }
+        const item = { id, name, img, note, price, stock }
         addToCart(item, cantidad)
     }
 
@@ -26,21 +26,7 @@ const ItemDetail = ({ name, img, note, price, stock, id, }) => {
                 <p className="card-text text-secondary">{note}</p>
                 <p className="card-text text-secondary">Precio: ${price}</p>
                 <p className="card-text text-secondary">Stock: {stock}</p>
-                {cantidadAgregada > 0 ?
-                    <Link
-                        className="btn btn-outline-primary btn-lg"
-                        role="button"
-                        to="/cart"
-                    >
-                        Terminar compra
-                    </Link>
-                    // < Button size="lg" variant="primary" >
-                    //     <Link to={"/cart"} className='Link'>
-                    //         Terminar compra
-                    //     </Link>
-                    // </Button> 
-                    :
-                    <ItemCount inicial={1} stock={stock} onAdd={handleCantidad} />}
+                <ItemCount inicial={1} stock={stock} onAdd={handleCantidad} />
             </div>
         </Card>
     )

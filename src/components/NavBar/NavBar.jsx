@@ -3,6 +3,7 @@ import logo from "./assets/logo_brand.png";
 import CartWidget from "../CartWidget/CartWidget";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import "./Navbar.css"
 
 const NavBar = () => {
   return (
@@ -18,28 +19,27 @@ const NavBar = () => {
         <Navbar.Collapse className="text-center">
           <Container>
             <Nav className="justify-content-center">
-              <Link to={"/"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
+              <Link className="linkClass" to={"/"}>
                 Home
               </Link>
-              <Link to={"/category/Proteina"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
+              <Link className="linkClass" to={"/category/Proteina"}>
                 Proteina
               </Link>
-              <Link to={"/category/Creatina"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
+              <Link className="linkClass" to={"/category/Creatina"}>
                 Creatina
               </Link>
-              <Link
+              <Link className="linkClass"
                 to={"/category/Barra de proteina"}
-                style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}
               >
                 Barras de Proteina
               </Link>
-              <Link to={"/category/Colageno"} style={{ fontSize: "3vh", padding:"2vh", textDecoration:"none" }}>
+              <Link className="linkClass" to={"/category/Colageno"}>
                 Colageno
               </Link>
             </Nav>
           </Container>
           <Nav>
-            <Link to={"#"}>
+            <Link to={"/cart"}>
               <CartWidget />
             </Link>
           </Nav>

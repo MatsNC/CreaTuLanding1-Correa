@@ -1,15 +1,18 @@
 .item-count-container {
-    display: flex;
+    display: inline-flex;
     margin: 1.5rem;
-    align-content: center;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
+    border: 1px solid rgb(208, 207, 207);
+    /*width: 200px;*/
+    height: 10vh;
 }
 
 .text-cantidad {
     margin: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
+    
 }
 
 .div-button {
@@ -18,9 +21,17 @@
 }
 
 .button-count {
-    background-color: rgb(60, 124, 235);
+    background-color: transparent;   
+    height: 10vh;
+    color: rgb(163, 166, 166);
+    padding: 1rem 1.5rem;
+    border: 1px solid rgb(208, 207, 207);
+}
+
+.button-count-disabled {
+    background-color: transparent;
+    height: 10vh;
     border-radius: 10px;
-    font-size: 1.5rem;
     color: azure;
     padding: 1rem 1.5rem;
     border: 0px;

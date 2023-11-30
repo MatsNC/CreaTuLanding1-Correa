@@ -13,14 +13,16 @@ const Cart = () => {
             <h1 className='titles'>Carrito</h1>
             {
                 (cart.length === 0) ?
-                   <h1 className='textCartClass'>No hay productos en el carrito</h1>
-                    /*<Link
-                        className="btn btn-dark btn-lg linkItemClass"
-                        role="button"
-                        to={`/item/${id}`}
-                    >
-                        Ver Detalles
-                    </Link>*/
+                    <div className="no-items">
+                        <h1 className='textCartClass'>No hay productos en el carrito</h1>
+                        <Link
+                            className="btn btn-dark btn-lg linkCart"
+                            role="button"
+                            to="/"
+                        >
+                            Ver Productos
+                        </Link>
+                    </div>
                     :
                     <ul>
                         {cart.map(product => (

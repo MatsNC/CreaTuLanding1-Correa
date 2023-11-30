@@ -18,6 +18,16 @@
 }
 
 .textCartClass {
-    margin-top: 10vh;
+    margin-top: 5vh;
     text-align: center;
+}
+
+.linkCart {
+    margin-top: 10vh;
+}
+
+.no-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

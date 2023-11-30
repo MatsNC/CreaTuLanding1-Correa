@@ -1,13 +1,19 @@
+import { useContext } from 'react'
 import '../../App.css'
 import '../Cart/CartItem.css'
-import { Button } from 'bootstrap'
+import { Button } from 'react-bootstrap'
+import { CartContext } from '../Context/CartContext'
 
-const CartItem = ({ img, name, price, quantity }) => {
+
+const CartItem = ({ img, name, price, quantity, id }) => {
+
+    const { cart, clearCart, removeFromCart } = useContext(CartContext);
+
     return (
         <>
             <div className='cartClass'>
                 <div>
-                    <img className='imgCartClass' src={img} alt="" />                    
+                    <img className='imgCartClass' src={img} alt="" />
                 </div>
                 <div>{name}</div>
                 <div>Barra</div>
@@ -23,7 +29,7 @@ const CartItem = ({ img, name, price, quantity }) => {
                     ${price}
                 </div>
                 <div>
-                    ❌
+                    <Button variant="outline-dark" onClick={() => removeFromCart(id)}>Quitar</Button>
                 </div>
             </div>
         </>

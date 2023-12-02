@@ -3,6 +3,9 @@ import CartItem from "./CartItem"
 import { CartContext } from "../Context/CartContext"
 import { Link } from "react-router-dom"
 import './CartItem.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Cart = () => {
 
@@ -24,14 +27,25 @@ const Cart = () => {
                         </Link>
                     </div>
                     :
-                    <ul>
-                        {cart.map(product => (
-                            <CartItem
-                                key={product.id}
-                                {...product}
-                            />
-                        ))}
-                    </ul>
+                    <>
+                        <Container className='grid-class-header'>
+                            <Row className='grid-class-header'>
+                                <Col className='grid-class-header d-none d-sm-none d-md-inline' sm={6}>Producto</Col>
+                                <Col className='grid-class-header d-none d-sm-none d-md-inline' sm={3}>Cantidad</Col>
+                                <Col className='grid-class-header d-none d-sm-none d-md-inline' sm={3}>Total</Col>
+                            </Row>
+
+                        </Container>
+
+                        <ul>
+                            {cart.map(product => (
+                                <CartItem
+                                    key={product.id}
+                                    {...product}
+                                />
+                            ))}
+                        </ul>
+                    </>
             }
         </>
     )

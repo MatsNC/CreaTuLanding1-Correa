@@ -13,13 +13,15 @@ export const CartProvider = ({ children }) => {
 
     const addToCart = (item, quantity) => {
         if (!isInCart(item.id)) {
-            return setCart(ant => [...ant, { ...item, quantity }])
+            return setCart([...cart, { ...item, quantity }])
         }
-        else
-        {
-            console.error('El producto ya fue agregado');            
+        else {
+            if ((quantity !== 0) && (quantity <= item.stock))
+            {
+                return setCart(cart.map((el) => (el.id === item.id ? { ...item, quantity } : el)))
+            }    
         }
-    }    
+    }
 
     const clearCart = () => {
         setCart([])

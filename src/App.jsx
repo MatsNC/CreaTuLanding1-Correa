@@ -1,6 +1,13 @@
 
 /*
+Acomodar cart usando grids, formato similar a pagina de ENA - agregar linea debajo
+hacer andar botones de subir y bajar cantidad - OK
+Hacer que se descuente de stock
+reducer de cart para que la cantidad se refleje en precio. Reducer para total
 Sacar AsyncMock y usar Firebase
+incrementar contador carrito
+form para checkout
+pantalla de checkout
 Agregar Spinner
 
 */

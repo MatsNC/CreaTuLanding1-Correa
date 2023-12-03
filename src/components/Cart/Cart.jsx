@@ -2,10 +2,11 @@ import { useContext } from "react"
 import CartItem from "./CartItem"
 import { CartContext } from "../Context/CartContext"
 import { Link } from "react-router-dom"
-import './CartItem.css';
+import './Cart.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import CartTotal from "./CartTotal";
 
 const Cart = () => {
 
@@ -45,6 +46,7 @@ const Cart = () => {
                                 />
                             ))}
                         </ul>
+                        <CartTotal />
                     </>
             }
         </>

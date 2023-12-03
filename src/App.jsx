@@ -1,15 +1,20 @@
 
 /*
-Acomodar cart usando grids, formato similar a pagina de ENA - agregar linea debajo
-hacer andar botones de subir y bajar cantidad - OK
-Hacer que se descuente de stock
-reducer de cart para que la cantidad se refleje en precio. Reducer para total
-Sacar AsyncMock y usar Firebase
-incrementar contador carrito
-form para checkout
+Sacar AsyncMock y usar Firebase - Ahora
+
+Prioridades:
+Formato para mobile de Cart
 pantalla de checkout
+form para checkout con ingreso de usuario
+Hacer que se descuente de stock - en checkout
+Ver detalles posicion absoluta respecto a Cards
+Readme.md
+Optimización y revisar código
 Agregar Spinner
 
+incrementar contador carrito - OK
+hacer andar botones de subir y bajar cantidad - OK
+reducer de cart para que la cantidad se refleje en precio. Reducer para total - OK
 */
 
 import NavBar from "./components/NavBar/NavBar";

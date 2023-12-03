@@ -1,3 +1,4 @@
+import CartCounter from '../Cart/CartCounter'
 import cart from './assets/cart.svg'
 import { Figure } from 'react-bootstrap'
 
@@ -10,9 +11,10 @@ const CartWidget = () => {
         alt="carrito"
         src={cart}
       />
-      <Figure.Caption>
+      {/* <Figure.Caption>
         0
-      </Figure.Caption>
+      </Figure.Caption> */}
+      <CartCounter/>
     </Figure>
   )
 }

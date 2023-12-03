@@ -24,12 +24,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./components/Context/CartContext";
 import { getFirestore, getDocs, getDoc, doc, query, where, collection, addDoc } from 'firebase/firestore'
 import { appFirestore } from "./main";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cart from "./components/Cart/Cart";
 
 function App() {
-  const db = getFirestore(appFirestore);
-  const orderCollection = collection(db, "orders");
+  //const [products, setProducts] = useState([]);
+  //const orderCollection = collection(db, "orders");
 
   // const sendOrder = () => {
   //   const newOrder = {
@@ -48,18 +48,34 @@ function App() {
   // };
 
   // useEffect(() => {
+  //   const db = getFirestore(appFirestore);
+  //   const collectionRef = collection(db, "products");
 
-  //   const ref = doc(db, 'products', 'XQlqwEm7xO9COREpeJm0');
-
-  //   getDoc(ref).then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       console.log(snapshot.id, snapshot.data());
-  //     } else {
-  //       console.log("Item no encontrado");
+  //   getDocs(collectionRef).then((snapshot) => {
+  //     if (snapshot.size !== 0) {
+  //       const productsList = snapshot.docs.map((doc) => ({
+  //         id: doc.id,
+  //         ...doc.data()
+  //       }))
+  //       setProducts(productsList);
+  //       console.log(productsList);
   //     }
-  //   })
+  //     else {
+  //       console.log("Item no encontrado");
 
-  // }, [])
+  //       // const ref = doc(db, 'products', 'XQlqwEm7xO9COREpeJm0');
+
+  //       // getDoc(ref).then((snapshot) => {
+  //       //   if (snapshot.exists()) {
+  //       //     console.log(snapshot.id, snapshot.data());
+  //       //   } else {
+  //       //     console.log("Item no encontrado");
+  //       //   }
+  //       // })
+  //     }
+  //   });
+
+  // }, []);
 
   return (
     <>
@@ -85,7 +101,7 @@ function App() {
             />
             <Route
               path="/cart"
-              element={ <Cart/> }
+              element={<Cart />}
             />
           </Routes>
         </BrowserRouter>

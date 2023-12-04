@@ -13,33 +13,33 @@ const ItemListContainer = ({ saludos }) => {
 
   const { categoryId } = useParams();
 
-  // useEffect(() => {
-  //   const db = getFirestore(appFirestore);
-  //   const collectionRef = collection(db, "products");
-
-  //   getDocs(collectionRef).then((snapshot) => {
-  //     if (snapshot.size !== 0) {
-  //       const productsList = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }))
-  //       setProductos(productsList);
-  //       console.log(productsList);
-  //     }
-  //     else {
-  //       console.log("Item no encontrado");       
-  //     }
-  //   });
-
-  // }, []);
-
   useEffect(() => {
-    const asyncFunction = categoryId ? getProductByCategory : obtenerDatos;
+    const db = getFirestore(appFirestore);
+    const collectionRef = collection(db, "products");
 
-    asyncFunction(categoryId)
-      .then((response) => setProductos(response))
-      .catch((error) => console.error(error));
-  }, [categoryId]);
+    getDocs(collectionRef).then((snapshot) => {
+      if (snapshot.size !== 0) {
+        const productsList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
+        setProductos(productsList);
+        console.log(productsList);
+      }
+      else {
+        console.log("Item no encontrado");       
+      }
+    });
+
+  }, []);
+
+  // useEffect(() => {
+  //   const asyncFunction = categoryId ? getProductByCategory : obtenerDatos;
+
+  //   asyncFunction(categoryId)
+  //     .then((response) => setProductos(response))
+  //     .catch((error) => console.error(error));
+  // }, [categoryId]);
 
   const chg_style = () => {
 

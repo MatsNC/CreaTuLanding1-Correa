@@ -5,14 +5,14 @@ function ListItem({ img, name, note, price, stock, id }) {
   return (
     <div className="card text-center card-style">
       <img className="img-product" src={img} alt="" />
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h4 className="card-title">{name}</h4>
         <p className="card-text text-secondary">{note}</p>
         <p className="card-text text-secondary">Precio: ${price}</p>
         <p className="card-text text-secondary">Stock: {stock}</p>
 
         <Link
-          className="btn btn-dark btn-lg linkItemClass"
+          className="btn btn-dark btn-lg mt-auto linkItemClass"
           role="button"
           to={`/item/${id}`}
         >

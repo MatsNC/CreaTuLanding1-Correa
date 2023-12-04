@@ -1,6 +1,7 @@
 
 /*
-Sacar AsyncMock y usar Firebase - Ahora
+Sacar AsyncMock y usar Firebase - OK (faltan ordenes)
+Agregar Spinner - ahora
 
 Prioridades:
 Formato para mobile de Cart
@@ -10,7 +11,7 @@ Hacer que se descuente de stock - en checkout
 Ver detalles posicion absoluta respecto a Cards
 Readme.md
 Optimización y revisar código
-Agregar Spinner
+
 
 incrementar contador carrito - OK
 hacer andar botones de subir y bajar cantidad - OK
@@ -22,9 +23,6 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./components/Context/CartContext";
-import { getFirestore, getDocs, getDoc, doc, query, where, collection, addDoc } from 'firebase/firestore'
-import { appFirestore } from "./main";
-import { useEffect, useState } from "react";
 import Cart from "./components/Cart/Cart";
 
 function App() {
@@ -45,37 +43,7 @@ function App() {
   //   };
   //   addDoc(orderCollection, newOrder).then((response) => { console.log(`Documento generado, id: ${response.id}`); })
 
-  // };
-
-  // useEffect(() => {
-  //   const db = getFirestore(appFirestore);
-  //   const collectionRef = collection(db, "products");
-
-  //   getDocs(collectionRef).then((snapshot) => {
-  //     if (snapshot.size !== 0) {
-  //       const productsList = snapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data()
-  //       }))
-  //       setProducts(productsList);
-  //       console.log(productsList);
-  //     }
-  //     else {
-  //       console.log("Item no encontrado");
-
-  //       // const ref = doc(db, 'products', 'XQlqwEm7xO9COREpeJm0');
-
-  //       // getDoc(ref).then((snapshot) => {
-  //       //   if (snapshot.exists()) {
-  //       //     console.log(snapshot.id, snapshot.data());
-  //       //   } else {
-  //       //     console.log("Item no encontrado");
-  //       //   }
-  //       // })
-  //     }
-  //   });
-
-  // }, []);
+  // };  
 
   return (
     <>

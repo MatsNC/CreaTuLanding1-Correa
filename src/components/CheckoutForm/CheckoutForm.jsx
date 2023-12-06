@@ -10,18 +10,55 @@ const CheckoutForm = () => {
     const { clearCart } = useContext(CartContext);
     const navigate = useNavigate();
 
-    // const [formData, setFormData] = useState({
-    //     name: '',
-    //     email: '',
-    //     password: '',
-    // });
+    const [formData, setFormData] = useState([]);
 
     useEffect(() => {
         mostrarAlerta();
     }, []);
 
-    const mostrarAlerta = async () => {
+    const confirmaPago = () => {
+        Swal.fire(
+            'Aviso',
+            'Tu compra se realizó correctamente',
+            'success'
+        ).then((res) => {
+            if (res.isConfirmed) {
+                clearCart();
+                navigate('/');
+            }
+        })
+    }
 
+    const modalPago = () => {
+        Swal.fire({
+            title: "Sweet!",
+            text: "Modal with a custom image.",
+            imageUrl: "https://unsplash.it/400/200",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "Custom image",
+            confirmButtonText: 'Aceptar',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Cancelar'
+        }).then((res) => {
+            if (res.isConfirmed) {
+                confirmaPago();
+            }
+            if (res.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Compra rechazada',
+                    'Tu compra no se realizó',
+                    'error'
+                )                
+                navigate('/cart');   
+            }
+        })
+    }
+
+    const mostrarAlerta = async () => {
+        
         const { value: formValues } = await Swal.fire({
             title: "Log In",
             html: `
@@ -42,21 +79,10 @@ const CheckoutForm = () => {
 
         if (formValues) {
             console.log(formValues);
-            Swal.fire({
-                title: "Sweet!",
-                text: "Modal with a custom image.",
-                imageUrl: "https://unsplash.it/400/200",
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: "Custom image",
-                confirmButtonText: 'Aceptar',
-            }).then((res) => {
-                if (res.isConfirmed)
-                {
-                    clearCart();
-                    navigate('/');
-                }
-            })
+            setFormData([...formData, formValues]);
+            console.log(formData);
+            modalPago();
+
         }
     }
 

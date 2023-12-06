@@ -24,6 +24,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./components/Context/CartContext";
 import Cart from "./components/Cart/Cart";
+import CheckoutForm from "./components/CheckoutForm/CheckoutForm";
 
 function App() {
   //const [products, setProducts] = useState([]);
@@ -70,6 +71,10 @@ function App() {
             <Route
               path="/cart"
               element={<Cart />}
+            />
+            <Route
+              path="/checkout"
+              element={<CheckoutForm/>}
             />
           </Routes>
         </BrowserRouter>

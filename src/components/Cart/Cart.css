@@ -93,6 +93,8 @@
 
 .cartTotal {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-items-total {
@@ -101,5 +103,14 @@
     border-radius: 50%;
     font-size: 12px;
     padding: 8px;
-    
-  }
+
+}
+
+
+/* @media only screen and (max-width: 576px) {}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 767px) and (max-width: 992px) {}
+
+@media only screen and (min-width: 992px) {} */

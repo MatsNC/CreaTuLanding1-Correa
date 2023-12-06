@@ -6,7 +6,7 @@ const CartCounter = () => {
 
     const { cart } = useContext(CartContext)
 
-    const cartItemCount = cart.reduce((acc, el) =>  acc + el.quantity, 0 )
+    const cartItemCount = cart.reduce((acc, el) => acc + el.quantity, 0)
 
     return (
         <span className='cart-items-total'>

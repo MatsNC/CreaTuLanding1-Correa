@@ -47,27 +47,6 @@ const CartItem = ({ img, name, price, quantity, id, stock }) => {
                 </Row>
 
             </Container>
-            {/* <div className='cartClass'>
-                <div>
-                    <img className='imgCartClass' src={img} alt="" />
-                </div>
-                <div>
-                    <p>{name}</p>
-                    <p>${price}</p>
-                </div>
-
-                <div>
-                    <div>
-                        <div>
-                            <p className='quantityClass'>{quantity}</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <Button variant="outline-dark" onClick={() => removeFromCart(id)}>Quitar</Button>
-                </div>
-            </div> */}
         </>
     )
 }

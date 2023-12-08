@@ -1,6 +1,6 @@
 # SuplementosTute - Plataforma de eCommerce para Suplementos
 
-¡Bienvenido a SuplementosTute! Esta plataforma eCommerce está diseñada para la venta de una amplia gama de suplementos nutricionales para el bienestar y la salud física.
+¡Bienvenido a SuplementosTute! Esta plataforma eCommerce está diseñada para la venta de una amplia gama de suplementos nutricionales para el entrenamiento integral.
 
 ## Descripción del Proyecto
 

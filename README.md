@@ -26,7 +26,7 @@ SuplementosTute es un proyecto eCommerce desarrollado con el objetivo de proporc
 ## Uso
 
 1. Ejecuta el servidor backend: `npm run dev`
-2. Accede a la aplicación desde tu navegador: `http://localhost:5174/`
+2. Accede a la aplicación desde tu navegador desde `http://localhost:(puerto_generado)/` en el VSC.
 
 ## Créditos
 

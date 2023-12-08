@@ -10,22 +10,64 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 const CheckoutForm = () => {
 
-    const { clearCart } = useContext(CartContext);
+    const [show, setShow] = useState(false);
+    const [userData, setUserData] = useState({
+        email: '',
+        password: '',
+        username: ''
+    });
+
+    // const [userData, setUserData] = useState(localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {
+    //     email: '',
+    //     password: '',
+    //     username: ''
+    // })
+
+    const { cart, clearCart } = useContext(CartContext);
     const navigate = useNavigate();
 
-    // const [formDataArray, setFormDataArray] = useState([]);
+    // useEffect(() => {
+    //     localStorage.setItem("userData", JSON.stringify(userData));
+    // }, [userData]);
+
+    // useEffect(() => {
+    //     const userData = localStorage.getItem("userData");
+    //     if (userData) {
+    //         setUserData(JSON.parse(userData));
+    //     }
+    // }, []);
 
     useEffect(() => {
         handleShow();
+        console.log('Datos del usuario:', userData);
     }, []);
 
-    // const logInCancelled = () => {
-    //     Swal.fire({
-    //         icon: "error",
-    //         title: "Log in Cancelado",
-    //     });
-    //     navigate('/cart');
-    // }
+    const borrarUserData = () => {
+        setUserData({
+            email: '',
+            password: '',
+            username: ''
+        });
+    }
+
+    const mostrarError = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error en el Log In',
+            text: 'Faltan datos de usuario',
+        });
+        borrarUserData();
+        console.log('Datos del usuario:', userData);
+        navigate('/cart');
+    }
+
+    const logInCancelado = () => {
+        Swal.fire({
+            icon: "error",
+            title: "Log in Cancelado",
+        });
+        navigate('/cart');
+    }
 
     const confirmaPago = () => {
         Swal.fire(
@@ -74,88 +116,44 @@ const CheckoutForm = () => {
         })
     }
 
-    // const mostrarAlerta = async () => {
-
-    //     const { value: formValues } = await Swal.fire({
-    //         title: "Log In",
-    //         html: `
-    //               <input id="swal-input1" class="swal2-input" placeholder="Nombre" name="name">
-    //               <input id="swal-input2" class="swal2-input" placeholder="Email" name="email">
-    //               <input id="swal-input3" class="swal2-input" placeholder="Password" name="password">
-    //             `,
-    //         confirmButtonText: 'Aceptar',
-    //         focusConfirm: false,
-    //         customClass: {
-    //             confirmButton: 'btn-black-white',
-    //         },
-    //         preConfirm: () => {
-    //             return {
-    //                 name: document.getElementById("swal-input1").value,
-    //                 email: document.getElementById("swal-input2").value,
-    //                 password: document.getElementById("swal-input3").value,
-    //             };
-    //         }
-    //     })
-    //         .then((res) => {
-    //             if (res.dismiss === Swal.DismissReason.cancel || res.dismiss === Swal.DismissReason.backdrop || res.dismiss === Swal.DismissReason.esc) {
-    //                 logInCancelled();
-    //             }
-    //             if (res.isConfirmed) {
-    //                 // if (formValues) {
-    //                 // console.log(formValues);
-    //                 // console.log(formValues.name);
-    //                 // console.log(formValues.email);
-    //                 // console.log(formValues.password);
-    //                 // setFormDataArray([...formDataArray, formValues]);
-    //                 // console.log(formDataArray);
-    //                 modalPago();
-
-    //                 // } 
-    //                 // else {
-    //                 //     logInCancelled();
-    //                 // }
-    //             }
-    //         });
-
-
-    // }
-
-
-
-
-
-
-    const [show, setShow] = useState(false);
-    const [userData, setUserData] = useState({
-        email: '',
-        password: '',
-        username: ''
-    });
-
     const handleClose = () => {
         setShow(false);
-        modalPago();
+        logInCancelado();
     }
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        if (userData.username === '') {
+            setShow(true);
+        }
+        else {
+            modalPago();
+        }
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
-    };
+    }
 
     const handleSubmit = () => {
-        
-        console.log('Datos del usuario:', userData);
-        
-        //Ver esto despues - hay que generar el order para Firebase con esta data
-        setUserData({
-            email: '',
-            password: '',
-            username: ''
-        });
 
-        handleClose();
-    };
+        console.log('Datos del usuario:', userData);
+        console.log('Carrito: ', cart);
+        // setUserData({
+        //     email: '',
+        //     password: '',
+        //     username: ''
+        // });
+
+        if (userData.username !== '' && userData.password !== '' && userData.email !== '') {
+            modalPago();
+            //Ver esto despues - hay que generar el order para Firebase con esta data     
+        }
+        else {
+            mostrarError();
+        }
+
+        setShow(false);
+    }
 
     return (
         <>
@@ -209,7 +207,7 @@ const CheckoutForm = () => {
                 </Modal.Footer>
             </Modal>
         </>
-    );    
+    );
 
 };
 

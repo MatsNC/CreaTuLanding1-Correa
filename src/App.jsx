@@ -1,7 +1,7 @@
 
 /*
-Sacar AsyncMock y usar Firebase - OK (faltan ordenes)
-Agregar Spinner - ahora
+Sacar AsyncMock y usar Firebase - OK 
+Agregar Spinner - OK 
 
 Prioridades:
 Formato para mobile de Cart

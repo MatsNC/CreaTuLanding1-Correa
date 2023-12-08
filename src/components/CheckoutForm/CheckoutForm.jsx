@@ -7,9 +7,13 @@ import { CartContext } from '../Context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import ImageCards from './assets/tarjetas_img.jpg';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { getFirestore, collection, addDoc } from 'firebase/firestore'
+import { appFirestore } from "../../main";
 
 const CheckoutForm = () => {
 
+    const { cart, clearCart } = useContext(CartContext);
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [userData, setUserData] = useState({
         email: '',
@@ -17,14 +21,12 @@ const CheckoutForm = () => {
         username: ''
     });
 
+    const db = getFirestore(appFirestore);
     // const [userData, setUserData] = useState(localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {
     //     email: '',
     //     password: '',
     //     username: ''
     // })
-
-    const { cart, clearCart } = useContext(CartContext);
-    const navigate = useNavigate();
 
     // useEffect(() => {
     //     localStorage.setItem("userData", JSON.stringify(userData));
@@ -42,6 +44,20 @@ const CheckoutForm = () => {
         console.log('Datos del usuario:', userData);
     }, []);
 
+    const generarOrden = () => {
+        const orderCollection = collection(db, "orders");
+
+        const orderData = {
+            buyer: {
+                username: userData.username,
+                email: userData.email
+            },
+            products: cart,
+        };
+
+        addDoc(orderCollection, orderData);
+    }
+
     const borrarUserData = () => {
         setUserData({
             email: '',
@@ -56,8 +72,7 @@ const CheckoutForm = () => {
             title: 'Error en el Log In',
             text: 'Faltan datos de usuario',
         });
-        borrarUserData();
-        console.log('Datos del usuario:', userData);
+        borrarUserData();        
         navigate('/cart');
     }
 
@@ -76,6 +91,7 @@ const CheckoutForm = () => {
             'success'
         ).then((res) => {
             if (res.isConfirmed) {
+                generarOrden();
                 clearCart();
                 navigate('/');
             }
@@ -121,6 +137,7 @@ const CheckoutForm = () => {
         logInCancelado();
     }
     const handleShow = () => {
+
         if (userData.username === '') {
             setShow(true);
         }
@@ -135,14 +152,6 @@ const CheckoutForm = () => {
     }
 
     const handleSubmit = () => {
-
-        console.log('Datos del usuario:', userData);
-        console.log('Carrito: ', cart);
-        // setUserData({
-        //     email: '',
-        //     password: '',
-        //     username: ''
-        // });
 
         if (userData.username !== '' && userData.password !== '' && userData.email !== '') {
             modalPago();

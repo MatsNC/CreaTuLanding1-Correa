@@ -30,7 +30,7 @@ const CheckoutForm = () => {
     const confirmaPago = () => {
         Swal.fire(
             'Aviso',
-            'Tu compra se realizó correctamente',
+            'Tu compra se realizó correctamente. En un instante recibirás un mail con el detalle de la compra',
             'success'
         ).then((res) => {
             if (res.isConfirmed) {
@@ -42,7 +42,7 @@ const CheckoutForm = () => {
 
     const modalPago = () => {
         Swal.fire({
-            title: "Pago con Tarjeta",
+            title: "Pago con Tarjeta de débito/crédito",
             html: `
                   <input id="swal-input1" class="swal2-input" placeholder="Número de tarjeta" name="nro_tarjeta">
                   <input id="swal-input2" class="swal2-input" placeholder="Fecha de Vencimiento" name="fecha_venc">
@@ -161,7 +161,7 @@ const CheckoutForm = () => {
         <>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Ingreso de Usuario</Modal.Title>
+                    <Modal.Title>Log In</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>

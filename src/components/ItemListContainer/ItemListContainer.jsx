@@ -1,21 +1,51 @@
 import { useState } from "react";
 import ListItem from "../ListItem/ListItem";
 import { useEffect } from "react";
-import obtenerDatos, { getProductByCategory } from "../../AsynMock";
 import { useParams } from "react-router-dom";
 import "../../../src/App.css"
+import { getFirestore, getDocs, getDoc, doc, query, where, collection, addDoc } from 'firebase/firestore'
+import { appFirestore } from "../../main";
+import Spinner from 'react-bootstrap/Spinner';
 
 const ItemListContainer = ({ saludos }) => {
   const [productos, setProductos] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   const { categoryId } = useParams();
 
   useEffect(() => {
-    const asyncFunction = categoryId ? getProductByCategory : obtenerDatos;
+    const db = getFirestore(appFirestore);
+    const collectionRef = collection(db, "products");
 
-    asyncFunction(categoryId)
-      .then((response) => setProductos(response))
-      .catch((error) => console.error(error));
+    if (categoryId) {
+      const q = query(collectionRef, where("category", "==", categoryId))
+      getDocs(q)
+        .then((snapshot) => {
+          if (snapshot.size !== 0) {
+            const productsList = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setProductos(productsList);
+            setLoading(false);
+
+          }
+        });
+    } else {
+      getDocs(collectionRef)
+        .then((snapshot) => {
+          if (snapshot.size !== 0) {
+            const productsList = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data()
+            }))
+            setProductos(productsList);
+            setLoading(false);
+
+          }
+        });
+    }
+
   }, [categoryId]);
 
   const chg_style = () => {
@@ -33,16 +63,23 @@ const ItemListContainer = ({ saludos }) => {
 
   return (
     <div>
-      {categoryId ? <h1 className="titles">{categoryId}</h1> : <h1 className="titles">{saludos}</h1>}
-      <div className="container d-flex justify-content-center align-items-center">
-        <div className="row">
-          {productos.map((producto) => (
-            <div className={chg_style()} key={producto.id}>
-              <ListItem {...producto} />
+      {isLoading ?
+        <>
+          <Spinner animation="grow" className="spinner-position"/>
+        </>
+        :
+        <>
+          {categoryId ? <h1 className="titles">{categoryId}</h1> : <h1 className="titles">{saludos}</h1>}
+          <div className="container d-flex justify-content-center align-items-center">
+            <div className="row">
+              {productos.map((producto) => (
+                <div className={chg_style()} key={producto.id}>
+                  <ListItem {...producto} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        </>}
     </div>
   );
 };

@@ -1,18 +1,26 @@
-import { Button } from 'react-bootstrap'
+import { Link } from "react-router-dom";
+import "./ListItem.css"
 
 function ListItem({ img, name, note, price, stock, id }) {
   return (
-    <div className="card text-center card-style" >
+    <div className="card text-center card-style">
       <img className="img-product" src={img} alt="" />
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h4 className="card-title">{name}</h4>
         <p className="card-text text-secondary">{note}</p>
         <p className="card-text text-secondary">Precio: ${price}</p>
         <p className="card-text text-secondary">Stock: {stock}</p>
-        <Button variant="primary" href={`/item/${id}`}>Ver Detalles</Button>
+
+        <Link
+          className="btn btn-dark btn-lg mt-auto linkItemClass"
+          role="button"
+          to={`/item/${id}`}
+        >
+          Ver Detalles
+        </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default ListItem
+export default ListItem;

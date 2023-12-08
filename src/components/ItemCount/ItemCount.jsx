@@ -1,6 +1,7 @@
 import './ItemCount.css'
 import { useState } from 'react'
-import Button from 'react-bootstrap/Button';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ItemCount = ({ inicial, stock, onAdd }) => {
     const [cantidad, setCantidad] = useState(inicial)
@@ -19,18 +20,31 @@ const ItemCount = ({ inicial, stock, onAdd }) => {
 
     return (
         <div>
-            <div className='item-count-container'>
-                <div className="div-button">
-                    <button className="button-count" onClick={decrementar}>-</button>
-                </div>
-                <p className='text-cantidad'>{cantidad}</p>
-                <div className="div-button">
-                    <button className="button-count" onClick={incrementar}>+</button>
-                </div>
-            </div>
-            <div>
-                <Button size="lg" variant="primary" onClick={() => onAdd(cantidad)} disabled={!stock}>Agregar al carrito</Button>
-            </div>
+            {stock != 0 ?
+                <>
+                    <div className='item-count-container'>
+                        <div className="div-button">
+                            <button className="button-count" onClick={decrementar}>-</button>
+                        </div>
+                        <p className='text-cantidad'>{cantidad}</p>
+                        <div className="div-button">
+                            <button className="button-count" onClick={incrementar}>+</button>
+                        </div>
+                    </div>
+                    <Link
+                        className="btn btn-dark btn-lg"
+                        role="button"
+                        to="/cart"
+                        onClick={() => onAdd(cantidad)} disabled={!stock}
+                    >Agregar al carrito</Link>
+                </>
+
+                :
+                <Button variant="secondary" size="lg" disabled>
+                    Sin Stock
+                </Button>
+            }
+
         </div>
     )
 }

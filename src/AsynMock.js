@@ -17,7 +17,7 @@ const productos = [
         category: "Proteina",
         note: "Descripcion para prote",
         price: 10000,
-        stock: 10,
+        stock: 0,
     },
     {
         id: '2',

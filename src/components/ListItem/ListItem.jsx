@@ -1,24 +1,36 @@
 import { Link } from "react-router-dom";
-//import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./ListItem.css"
-//import { CartContext } from "../Context/CartContext";
+import { CartContext } from "../Context/CartContext";
 
 function ListItem({ img, name, note, price, stock, id }) {
 
-  //const { isInCart , cart } = useContext(CartContext);
+  // const { isInCart, cart } = useContext(CartContext);
+  // const [newStock, setnewStock] = useState(stock);
 
-  // useEffect (() => {    
+  // useEffect(() => {
   //   if (isInCart(id)) {
-  //     console.log('entre aca');
   //     const arrayFind = cart.find(objeto => objeto.id === id);
-  //     if (stock > 0)
-  //     {  
-  //       stock = stock - arrayFind.quantity;
+  //     if (stock > 0) {
+  //       setnewStock(stock - arrayFind.quantity);
   //     }
-  //     console.log(stock);
   //     console.log(arrayFind.quantity);
+  //     console.log(newStock);
   //   }
-  // });
+  // },[]);
+
+  // const handleStock = () => {
+  //   const arrayFind = cart.find(objeto => objeto.id === id);
+  //   if (isInCart(id)) {
+  //     if (stock > 0) {
+  //       stock = stock - arrayFind.quantity
+  //     }
+  //     console.log(arrayFind.quantity);
+  //     console.log(stock);
+  //     return stock;
+  //   }
+  // }
+
 
   return (
     <div className="card text-center card-style">

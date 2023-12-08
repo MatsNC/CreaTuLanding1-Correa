@@ -41,7 +41,7 @@ const CheckoutForm = () => {
 
     useEffect(() => {
         handleShow();
-        console.log('Datos del usuario:', userData);
+        //console.log('Datos del usuario:', userData);
     }, []);
 
     const generarOrden = () => {

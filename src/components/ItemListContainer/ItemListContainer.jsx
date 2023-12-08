@@ -3,7 +3,7 @@ import ListItem from "../ListItem/ListItem";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "../../../src/App.css"
-import { getFirestore, getDocs, getDoc, doc, query, where, collection, addDoc } from 'firebase/firestore'
+import { getFirestore, getDocs, query, where, collection} from 'firebase/firestore'
 import { appFirestore } from "../../main";
 import Spinner from 'react-bootstrap/Spinner';
 

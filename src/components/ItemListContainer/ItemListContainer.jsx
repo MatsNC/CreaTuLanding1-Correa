@@ -26,7 +26,7 @@ const ItemListContainer = ({ saludos }) => {
               id: doc.id,
               ...doc.data()
             }))
-            setProductos(productsList);
+            setProductos(productsList);            
             setLoading(false);
 
           }
@@ -39,7 +39,7 @@ const ItemListContainer = ({ saludos }) => {
               id: doc.id,
               ...doc.data()
             }))
-            setProductos(productsList);
+            setProductos(productsList);            
             setLoading(false);
 
           }

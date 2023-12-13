@@ -2,9 +2,8 @@ import Card from 'react-bootstrap/Card';
 import '../ItemDetail/ItemDetail.css'
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { CartContext } from '../Context/CartContext';
-import { Link } from 'react-router-dom';
+
 
 const ItemDetail = ({ name, img, note, price, stock, id }) => {
 

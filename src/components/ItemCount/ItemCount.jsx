@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const ItemCount = ({ inicial, stock, onAdd }) => {
-    const [cantidad, setCantidad] = useState(inicial)
+    const [cantidad, setCantidad] = useState(inicial);
 
     const incrementar = () => {
         if (cantidad < stock) {
